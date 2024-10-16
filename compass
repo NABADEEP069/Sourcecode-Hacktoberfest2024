@@ -1,0 +1,31 @@
+// Function to find the compass direction based on the angle
+function getCompassDirection(angle: number): string {
+  // Normalize the angle between 0 and 360 degrees
+  const normalizedAngle = (angle + 360) % 360;
+
+  // Define compass directions based on the angle ranges
+  if (normalizedAngle >= 337.5 || normalizedAngle < 22.5) {
+    return "N"; // North
+  } else if (normalizedAngle >= 22.5 && normalizedAngle < 67.5) {
+    return "NE"; // North-East
+  } else if (normalizedAngle >= 67.5 && normalizedAngle < 112.5) {
+    return "E"; // East
+  } else if (normalizedAngle >= 112.5 && normalizedAngle < 157.5) {
+    return "SE"; // South-East
+  } else if (normalizedAngle >= 157.5 && normalizedAngle < 202.5) {
+    return "S"; // South
+  } else if (normalizedAngle >= 202.5 && normalizedAngle < 247.5) {
+    return "SW"; // South-West
+  } else if (normalizedAngle >= 247.5 && normalizedAngle < 292.5) {
+    return "W"; // West
+  } else if (normalizedAngle >= 292.5 && normalizedAngle < 337.5) {
+    return "NW"; // North-West
+  }
+
+  return ""; // Fallback if no direction found (this shouldn't happen)
+}
+
+// Example usage
+const angle = 45; // Example angle
+const direction = getCompassDirection(angle);
+console.log(`The compass direction for ${angle}° is ${direction}.`);
